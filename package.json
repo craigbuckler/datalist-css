@@ -1,0 +1,30 @@
+{
+  "name": "datalist-css",
+  "version": "1.0.0",
+  "description": "Style HTML5 datalist elements using standard CSS",
+  "type": "module",
+  "browser": "./dist/datalist-css.min.js",
+  "files": [
+    "dist/**/*"
+  ],
+  "scripts": {
+    "build": "rollup --config --environment NODE_ENV:production"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/craigbuckler/datalist-css.git"
+  },
+  "homepage": "https://github.com/craigbuckler/datalist-css#readme",
+  "bugs": {
+    "url": "https://github.com/craigbuckler/datalist-css/issues"
+  },
+  "keywords": [
+    "HTML5",
+    "CSS",
+    "datalist",
+    "autocomplete",
+    "style"
+  ],
+  "author": "Craig Buckler",
+  "license": "MIT"
+}
