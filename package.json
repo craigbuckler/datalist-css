@@ -1,6 +1,6 @@
 {
   "name": "datalist-css",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Style HTML5 datalist elements using standard CSS",
   "type": "module",
   "browser": "./dist/datalist-css.min.js",
