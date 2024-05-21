@@ -8,12 +8,16 @@ Then style <datalist> and <option> fields using CSS.
 Note the <datalist> should be placed immediately after its <input>.
 */
 (() => {
+  // do not run on the server
+  if (typeof document === "undefined") return;
 
   // currently active list
   let listActive;
 
   // datalist handler events
   document.body.addEventListener('focusin', listShow);
+  document.body.addEventListener('click', closeOnClickOutside);
+  document.addEventListener('keydown', closeOnEscape);
 
   // datalist control focused?
   function listShow(e) {
@@ -200,7 +204,6 @@ Note the <datalist> should be placed immediately after its <input>.
 
     dl.input.value = (t && t.value) || '';
     listHide(dl);
-
   }
 
 
@@ -209,5 +212,16 @@ Note the <datalist> should be placed immediately after its <input>.
     return t && t.target;
   }
 
+  // hides the datalist on click outside
+  function closeOnClickOutside(evt) {
+    if (!listActive || listActive.contains(evt.target) || evt.target === listActive.input) return;
+    listHide(listActive);
+  }
+
+  // hides the datalist on hit escape key
+  function closeOnEscape(evt) {
+    if (!listActive || !['Esc', 'Escape'].includes(evt.key)) return;
+    listHide(listActive);
+  }
 
 })();
